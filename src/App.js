@@ -1,24 +1,39 @@
-import logo from './logo.svg';
+
 import './App.css';
+import SurveyForm from './components/SurveyForm';
+import React, { useState } from 'react'
 
 function App() {
+ 
+  const [submitted, setSubmitted] = useState(false);
+const [ansers, setAnsers] = useState (null);
+
+
+  const handleSurveySubmit = (data) => {
+
+    alert("Survey submitted successfully!");
+    setSubmitted(true);
+    setAnsers(data);
+  }
+ 
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+   <div className="bg-light min-vh-100 d-flex justify-content-center align-items-center">
+      {!submitted ? (
+        <SurveyForm onSubmit={handleSurveySubmit} />
+      ) : (
+        <div className="text-center">
+          <h1 className="text-success mb-3">ধন্যবাদ!</h1>
+          <p>আপনার উত্তরগুলো জমা হয়েছে।</p>
+          <button className="btn btn-secondary" onClick={() => setSubmitted(false)}>
+            আবার শুরু করুন
+          </button>
+        </div>
+      )}
     </div>
+    
+    </>
   );
 }
 
