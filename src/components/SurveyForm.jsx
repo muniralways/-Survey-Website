@@ -27,7 +27,7 @@ const handlesubmit = (e) =>{
 <div className="container">
     <div className="card shadow mt-5">
         <div className="card-header">
-            <h1 className='text-center mb-4 text-primary'>Servey</h1>
+            <h1 className='text-center mb-4 text-primary'>Survey</h1>
         </div>
         <div className="card-body">
             <form onSubmit={handlesubmit}>
